@@ -3,178 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IAuralink - Automatiza. Conecta. Escala.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>IAuralink</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: #f5f7fa;
-      color: #333;
-    }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Outfit', sans-serif; background-color: white; }
     header {
-      background-color: #0d1b2a;
-      color: #fff;
+      background-color: #0d0d0d;
       padding: 1rem 2rem;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: flex-start;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    .logo-container img.logo-icon {
-      height: 40px;
-      margin-right: 1rem;
-    }
-    .logo-container .title {
+    .brand {
       display: flex;
       flex-direction: column;
+      line-height: 1.2;
     }
-    .logo-container .title h1 {
+    .brand h1 {
       margin: 0;
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(to right, #093B6F, #03C4C4);
+      font-size: 1.5rem;
+      background: linear-gradient(to right, #03C4C4, #093B6F);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .logo-container .title p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #ffffff;
-    }
+    .brand small { color: white; font-size: 0.8rem; }
     nav {
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 1rem 2rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex: 1;
     }
     nav a {
-      margin: 0 15px;
-      color: #0d1b2a;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
     }
     nav a:hover {
-      color: #0077cc;
+      text-decoration: underline;
+      transform: scale(1.05);
     }
     .translate-btn {
-      float: right;
-      margin-right: 2rem;
-      font-size: 0.9rem;
-      background-color: #0077cc;
-      color: #fff;
+      background: #03C4C4;
       border: none;
-      padding: 0.5rem 1rem;
+      color: white;
+      padding: 0.5rem 2rem;
       border-radius: 4px;
+      font-weight: bold;
       cursor: pointer;
+      margin-left: 0.03rem;
+      position: relative;
+      right: 9.875rem;
+    }
+    .hero {
+      padding: 9rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #61a5c2, #f6e27a);
+      color: #1a1a1a;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      max-width: 800px;
+      margin: auto;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 1rem auto;
     }
     section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
+      padding: 6rem 2rem;
+      text-align: center;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      color: #0d1b2a;
-    }
-    .services, .plans, .feedback, .contact {
-      margin-top: 4rem;
+    section h2 {
+      font-size: 2rem;
+      color: #0d0d0d;
     }
     .card {
-      background: #fff;
-      border-radius: 8px;
+      max-width: 600px;
+      margin: 2rem auto;
       padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
-    .card a.button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 0.5rem 1rem;
-      background-color: #0077cc;
-      color: #fff;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .plans-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .plans-table th, .plans-table td {
-      padding: 1rem;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-    .contact a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    .banner {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-bottom: 4px solid #0077cc;
-    }
-    section::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, #03C4C4, transparent);
-      margin-top: 3rem;
-    }
-    .card h3::before {
-      content: "💻 ";
-    }
-    .button {
-      transition: background-color 0.3s ease;
-    }
-    .button:hover {
-      background-color: #005fa3;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #0d1b2a;
-      color: white;
+    .card:hover {
+      transform: translateY(-5px);
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Chain_link_icon_gold.svg" alt="Ícono de link dorado" class="logo-icon">
-      <div class="title">
-        <h1>IAuralink</h1>
-        <p id="slogan">Automatiza. Conecta. Escala.</p>
+    <div class="brand">
+      <h1>IAuralink</h1>
+      <small id="slogan">Automatiza. Conecta. Escala.</small>
+    </div>
+    <nav>
+      <a class="nav-link" href="#hero">INICIO</a>
+      <a class="nav-link" href="#services">SERVICIOS</a>
+      <a class="nav-link" href="#feedback">CLIENTES</a>
+      <a class="nav-link" href="#contact">CONTACTO</a>
+    </nav>
+    <button class="translate-btn" onclick="switchLanguage()" id="langToggle">ENGLISH</button>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1 id="hero-title">Nos enfocamos en aumentar la visibilidad de nuestros clientes mediante herramientas inteligentes</h1>
+    <p id="hero-desc1">IAuralink es una empresa especializada en ayudar a gestionar la presencia digital de nuestros clientes en redes sociales.</p>
+    <p id="hero-desc2">¡Nuestro objetivo es que tu negocio esté presente, automatizado y en constante crecimiento!</p>
+  </section>
+
+  <section id="services">
+    <h2 id="services-title">Servicios</h2>
+    <div class="card">
+      <h3 class="service-title">Diseño Web</h3>
+      <p class="service-desc">Desarrollamos sitios modernos y responsivos para tu negocio.</p>
+    </div>
+    <div class="card">
+      <h3 class="service-title">Automatización + Chatbot</h3>
+      <p class="service-desc">Conectamos tus formularios y chat con WhatsApp y correo.</p>
+    </div>
+    <div class="card">
+      <h3 class="service-title">Gestión de Redes Sociales</h3>
+      <p class="service-desc">Publicaciones mensuales, diseño visual y análisis de engagement.</p>
+    </div>
+  </section>
+
+  <section id="feedback">
+    <h2 id="clients-title">Clientes</h2>
+    <div class="card"><p class="testimonial">“IAuralink transformó completamente nuestra visibilidad online. Excelente servicio.”</p><strong>- Sofía, Santiago</strong></div>
+    <div class="card"><p class="testimonial">“Desde que usamos su automatización, duplicamos nuestros clientes.”</p><strong>- Matías, Valparaíso</strong></div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" style="background-color: #0d0d0d; color: white; padding: 6rem 2rem;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap;">
+      <div style="flex: 1 1 250px; padding-right: 2rem;">
+        <h3 style="display: flex; align-items: center; gap: 1rem;">SÍGUENOS
+          <a href="#" title="LinkedIn"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn" width="20" style="filter: invert(1);"></a>
+          <a href="#" title="X"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/x.svg" alt="X" width="20" style="filter: invert(1);"></a>
+          <a href="#" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" alt="Instagram" width="20" style="filter: invert(1);"></a>
+          <a href="#" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/whatsapp.svg" alt="WhatsApp" width="20" style="filter: invert(1);"></a>
+        </h3>
+        <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+        <p><strong>Correo:</strong> contacto@iauralink.com</p>
+        <button style="margin-top: 1rem; background-color: #03C4C4; color: white; border: none; padding: 0.6rem 1.2rem; font-weight: bold; border-radius: 6px;">Chat bot</button>
+      </div>
+      <div style="flex: 1 1 600px; background-color: #03C4C4; padding: 2rem; border-radius: 8px;">
+        <h2 style="text-transform: uppercase; color: white; text-align: left;">Formulario de Contacto</h2>
+        <form style="margin-top: 1rem;">
+          <input type="text" placeholder="Ingrese su nombre" style="width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: none; border-radius: 4px;">
+          <input type="email" placeholder="Ingrese un correo válido" style="width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: none; border-radius: 4px;">
+          <textarea placeholder="Escriba su mensaje" rows="4" style="width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: none; border-radius: 4px;"></textarea>
+          <label for="servicio" style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: white;">Selecciona un servicio</label>
+          <select id="servicio" name="servicio" style="width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: none; border-radius: 4px;">
+            <option value="web">Diseño Web</option>
+            <option value="chatbot">Automatización + Chatbot</option>
+            <option value="redes">Gestión de Redes Sociales</option>
+          </select>
+          <button type="submit" style="background-color: white; color: #03C4C4; border: none; padding: 0.8rem 1.5rem; font-weight: bold; border-radius: 4px;">ENVIAR</button>
+        </form>
       </div>
     </div>
-  </header>
-  <section class="about" id="about" style="margin-top: -30px; padding-top: 70px;">
-    <h2 id="about-title">¿Quiénes somos?</h2>
-    <p id="about-text1">IAuralink es una empresa especializada en ayudar a otras empresas a gestionar su presencia digital en redes sociales, creando contenido de valor, ejecutando campañas publicitarias y mucho más.</p>
-    <p id="about-text2">Nos enfocamos en aumentar la visibilidad de nuestros clientes mediante herramientas inteligentes que optimizan sus sitios web y procesos de atención en línea. Nuestro objetivo es que tu negocio esté presente, automatizado y en crecimiento constante.</p>
-    <p id="about-text3">Además, combinamos la tecnología con el diseño estratégico para construir soluciones que no solo se ven bien, sino que también convierten visitantes en clientes. Creemos en el poder de la automatización inteligente y en la cercanía humana que una marca necesita para destacarse.</p>
-    <p id="about-text4">Desde pequeños emprendimientos hasta empresas establecidas, nuestro equipo te acompaña en cada paso para que la transformación digital no sea un lujo, sino una herramienta a tu alcance.</p>
   </section>
-  <footer>
-    © 2025 IAuralink. Todos los derechos reservados.
-  </footer>
+
+  <!-- REVIEW SECTION -->
+  <section id="review-form" style="padding: 4rem 2rem; background: #f9f9f9;">
+    <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 id="review-title">Comparte tu experiencia</h3>
+      <form>
+        <input id="review-name" type="text" placeholder="Tu nombre" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;">
+        <input id="review-location" type="text" placeholder="Ciudad o país" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;">
+        <textarea id="review-text" placeholder="Escribe tu reseña..." rows="4" style="width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
+        <button id="review-submit" type="submit" style="background-color: #03C4C4; color: white; border: none; padding: 0.8rem 1.5rem; font-weight: bold; border-radius: 6px;">Enviar Reseña</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- TRANSLATION SCRIPT -->
+  <script>
+    const translations = {
+      es: {
+        slogan: "Automatiza. Conecta. Escala.",
+        heroTitle: "Nos enfocamos en aumentar la visibilidad de nuestros clientes mediante herramientas inteligentes",
+        heroDesc1: "IAuralink es una empresa especializada en ayudar a gestionar la presencia digital de nuestros clientes en redes sociales.",
+        heroDesc2: "¡Nuestro objetivo es que tu negocio esté presente, automatizado y en constante crecimiento!",
+        servicesTitle: "Servicios",
+        serviceTitles: ["Diseño Web", "Automatización + Chatbot", "Gestión de Redes Sociales"],
+        serviceDescs: [
+          "Desarrollamos sitios modernos y responsivos para tu negocio.",
+          "Conectamos tus formularios y chat con WhatsApp y correo.",
+          "Publicaciones mensuales, diseño visual y análisis de engagement."
+        ],
+        clientsTitle: "Clientes",
+        testimonials: [
+          "“IAuralink transformó completamente nuestra visibilidad online. Excelente servicio.”",
+          "“Desde que usamos su automatización, duplicamos nuestros clientes.”"
+        ],
+        reviewTitle: "Comparte tu experiencia",
+        reviewPlaceholder: ["Tu nombre", "Ciudad o país", "Escribe tu reseña..."],
+        reviewSubmit: "Enviar Reseña",
+        navLinks: ["INICIO", "SERVICIOS", "CLIENTES", "CONTACTO"],
+        contactFormTitle: "Formulario de Contacto",
+        contactPlaceholders: ["Ingrese su nombre", "Ingrese un correo válido", "Escriba su mensaje"],
+        serviceOptions: ["Diseño Web", "Automatización + Chatbot", "Gestión de Redes Sociales"],
+        contactSubmit: "ENVIAR",
+        langBtn: "ENGLISH"
+      },
+      en: {
+        slogan: "Automate. Connect. Scale.",
+        heroTitle: "We focus on boosting our clients' visibility through smart tools",
+        heroDesc1: "IAuralink is a company specialized in helping manage our clients' digital presence on social media.",
+        heroDesc2: "Our goal is for your business to be present, automated, and constantly growing!",
+        servicesTitle: "Services",
+        serviceTitles: ["Web Design", "Automation + Chatbot", "Social Media Management"],
+        serviceDescs: [
+          "We develop modern, responsive websites for your business.",
+          "We connect your forms and chat with WhatsApp and email.",
+          "Monthly posts, visual design, and engagement analytics."
+        ],
+        clientsTitle: "Clients",
+        testimonials: [
+          "“IAuralink completely transformed our online visibility. Excellent service.”",
+          "“Since using their automation, we've doubled our clients.”"
+        ],
+        reviewTitle: "Share your experience",
+        reviewPlaceholder: ["Your name", "City or country", "Write your review..."],
+        reviewSubmit: "Submit Review",
+        navLinks: ["HOME", "SERVICES", "CLIENTS", "CONTACT"],
+        contactFormTitle: "Contact Form",
+        contactPlaceholders: ["Enter your name", "Enter a valid email", "Write your message"],
+        serviceOptions: ["Web Design", "Automation + Chatbot", "Social Media Management"],
+        contactSubmit: "SUBMIT",
+        langBtn: "ESPAÑOL"
+      }
+    };
+
+    let currentLang = "es";
+
+    function switchLanguage() {
+      currentLang = currentLang === "es" ? "en" : "es";
+      const t = translations[currentLang];
+
+      document.getElementById("slogan").innerText = t.slogan;
+      document.getElementById("hero-title").innerText = t.heroTitle;
+      document.getElementById("hero-desc1").innerText = t.heroDesc1;
+      document.getElementById("hero-desc2").innerText = t.heroDesc2;
+      document.getElementById("services-title").innerText = t.servicesTitle;
+
+      const serviceTitles = document.querySelectorAll(".service-title");
+      serviceTitles.forEach((el, i) => el.innerText = t.serviceTitles[i]);
+
+      const serviceDescs = document.querySelectorAll(".service-desc");
+      serviceDescs.forEach((el, i) => el.innerText = t.serviceDescs[i]);
+
+      document.getElementById("clients-title").innerText = t.clientsTitle;
+      const testimonials = document.querySelectorAll(".testimonial");
+      testimonials.forEach((el, i) => el.innerText = t.testimonials[i]);
+
+      document.getElementById("review-title").innerText = t.reviewTitle;
+      document.getElementById("review-name").placeholder = t.reviewPlaceholder[0];
+      document.getElementById("review-location").placeholder = t.reviewPlaceholder[1];
+      document.getElementById("review-text").placeholder = t.reviewPlaceholder[2];
+      document.getElementById("review-submit").innerText = t.reviewSubmit;
+
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach((el, i) => el.innerText = t.navLinks[i]);
+
+      document.querySelector("#contact h2").innerText = t.contactFormTitle;
+      const contactInputs = document.querySelectorAll("#contact input, #contact textarea");
+      contactInputs.forEach((el, i) => {
+        if (t.contactPlaceholders[i]) el.placeholder = t.contactPlaceholders[i];
+      });
+
+      const select = document.querySelector("#servicio");
+      select.innerHTML = "";
+      t.serviceOptions.forEach(opt => {
+        const option = document.createElement("option");
+        option.innerText = opt;
+        select.appendChild(option);
+      });
+
+      document.querySelector("#contact button[type='submit']").innerText = t.contactSubmit;
+      document.getElementById("langToggle").innerText = t.langBtn;
+    }
+  </script>
 </body>
 </html>
