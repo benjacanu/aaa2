@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IAuralink - Automatiza. Conecta. Escala.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background-color: #0d1b2a;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-container img.logo-icon {
+      height: 40px;
+      margin-right: 1rem;
+    }
+    .logo-container .title {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-container .title h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #093B6F, #03C4C4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-container .title p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #0d1b2a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #0077cc;
+    }
+    .translate-btn {
+      float: right;
+      margin-right: 2rem;
+      font-size: 0.9rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #0d1b2a;
+    }
+    .services, .plans, .feedback, .contact {
+      margin-top: 4rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .card a.button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 0.5rem 1rem;
+      background-color: #0077cc;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .plans-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .plans-table th, .plans-table td {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    .contact a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-bottom: 4px solid #0077cc;
+    }
+    section::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #03C4C4, transparent);
+      margin-top: 3rem;
+    }
+    .card h3::before {
+      content: "💻 ";
+    }
+    .button {
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #005fa3;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0d1b2a;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Chain_link_icon_gold.svg" alt="Ícono de link dorado" class="logo-icon">
+      <div class="title">
+        <h1>IAuralink</h1>
+        <p id="slogan">Automatiza. Conecta. Escala.</p>
+      </div>
+    </div>
+  </header>
+  <section class="about" id="about" style="margin-top: -30px; padding-top: 70px;">
+    <h2 id="about-title">¿Quiénes somos?</h2>
+    <p id="about-text1">IAuralink es una empresa especializada en ayudar a otras empresas a gestionar su presencia digital en redes sociales, creando contenido de valor, ejecutando campañas publicitarias y mucho más.</p>
+    <p id="about-text2">Nos enfocamos en aumentar la visibilidad de nuestros clientes mediante herramientas inteligentes que optimizan sus sitios web y procesos de atención en línea. Nuestro objetivo es que tu negocio esté presente, automatizado y en crecimiento constante.</p>
+    <p id="about-text3">Además, combinamos la tecnología con el diseño estratégico para construir soluciones que no solo se ven bien, sino que también convierten visitantes en clientes. Creemos en el poder de la automatización inteligente y en la cercanía humana que una marca necesita para destacarse.</p>
+    <p id="about-text4">Desde pequeños emprendimientos hasta empresas establecidas, nuestro equipo te acompaña en cada paso para que la transformación digital no sea un lujo, sino una herramienta a tu alcance.</p>
+  </section>
+  <footer>
+    © 2025 IAuralink. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
